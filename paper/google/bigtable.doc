@@ -1,0 +1,21 @@
+-- Main.duyuqi - 2014-04-27
+---+ 一、基本思想
+
+---+ 二、ccdb-table不如bigtable的地方
+   * 1、ccdb-table的block系统是单机类型的（doing）。bigtable构建再gfs上，gfs底层是分布式block的（需要再求证）。
+   * 2、ccdb-table暂时无版本控制（doing）。bigtable有版本控制，timestamp。
+   * 3、ccdb-table暂时cf没有上线。bigtable有cf。
+   * 4、ccdb-table是slice内部有序，不是全局有序。bigtable是全局有序
+   * 5、ccdb-table的分区是确定后静止的，bigtable是可以动态调整的。（if全局有序）
+   * 6、ccdb-table对Master的依赖强，bigtable对master服务若依赖。（可用性上得差别）
+
+
+---+ 四、What's NoSQL
+   * "NoSQL" is a general term meaning that the database isn't an RDBMS which supports SQL as its primary access language, but there are many types of NoSQL databases: 
+      * 1）BerkeleyDB is an example of a local NoSQL database
+      * 2）HBase is very much a distributed database. Technically speaking, HBase is really more a "Data Store" than "Data Base" because it lacks（缺乏） many of the features you find in an RDBMS, such as typed columns, secondary indexes, triggers, and advanced query languages, etc.
+
+---+ 五、主流NoSQL
+   * 1、鼻祖：BigTable，别有传，不提。
+   * 2、Hbase：HBase is a type of "NoSQL" database. 
+   * 3、MongoDB:
